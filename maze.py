@@ -1,7 +1,8 @@
 import numpy as np
-import random
 
 class Maze:
+    """Een eenvoudige 4x4 doolhofomgeving met vaste beloningen."""
+
     def __init__(self):
         self.width = 4
         self.height = 4
@@ -24,13 +25,19 @@ class Maze:
             3: (0, 1),   # down
         }
 
+        #print(self.rewards)
+
     def is_terminal(self, state):
+        """Geeft True terug als de toestand terminaal is."""
+        print(state)
         return state in self.terminals
 
     def get_reward(self, state):
+        """Geeft de beloning van een toestand terug."""
         return self.rewards[state]
 
     def step(self, state, action):
+        """Geeft de volgende toestand na het uitvoeren van een actie."""
         if self.is_terminal(state):
             return state
 
@@ -42,8 +49,3 @@ class Maze:
         new_y = max(0, min(self.height - 1, y + dy))
 
         return new_y * self.width + new_x
-
-
-
-
-
