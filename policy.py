@@ -1,15 +1,5 @@
 import random
 
-class Policy:
-    """Een willekeurige beleid voor actie selectie."""
-
-    def __init__(self, num_actions=4):
-        self.num_actions = num_actions
-
-    def select_action(self, state):
-        """Selecteert een willekeurige actie."""
-        return random.randint(0, self.num_actions - 1)
-
 
 class DeterministicPolicy:
     """Een deterministisch beleid gedefinieerd door een beleidsdictionary."""
